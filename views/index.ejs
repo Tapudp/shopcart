@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/head.ejs %>
+    <% include partials/navbar.ejs %>
+</head>
+<body>
+    <div class="container">
+
+    <% for(var i = 0 ; i < 1; i++) { %>
+        <div class="row">
+            <% for(var j = 0; j < products.length; j++) { %>
+                <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="<%= products[j].imagePath %>" alt="...">
+                            <div class="caption">
+                                <h3><%= products[j].title %></h3>
+                                <p><%= products[j].description %></p>
+                                <div class="clearfix">
+                                    <div class="price pull-left">₹<%= products[j].price %></div>
+                                    <a href="/add-to-cart/<%= products[j]._id %>" class="btn btn-default btn-success pull-right" role="button">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--col ending-->            
+            <% } %>
+
+        </div> <!-- row ending-->
+    <% } %>
+        
+    </div>            <!--container end-->
+    <% include partials/footer.ejs %>
+    <% include partials/scripts.ejs %>
+</body>
+</html>
